@@ -12,7 +12,9 @@ The following scripts are important :
 ./unpack_initrds.sh	-> unpack the installer and
 			   boot initrd
 
-./make_iso.sh		-> build the installimage
+./make_iso.sh		-> build the installimage, missing files are
+			   downloaded from 
+			   http://xbox-linux.sourceforge.net/packages/unstable/
 
 ./make_bootdisks.sh	-> creating the bootcd's for running from
 			   hdd ( native ) or FATX
