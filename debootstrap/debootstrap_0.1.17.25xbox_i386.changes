@@ -1,0 +1,22 @@
+Format: 1.7
+Date: Sun, 11 May 2003 11:12:28 +0200
+Source: debootstrap
+Binary: debootstrap-udeb debootstrap
+Architecture: source i386
+Version: 0.1.17.25xbox
+Distribution: unstable
+Urgency: low
+Maintainer: Anthony Towns <ajt@debian.org>
+Changed-By: root <root@wwa.localdomain.local>
+Description: 
+ debootstrap - Bootstrap a basic Debian system
+ debootstrap-udeb - Bootstrap the Debian system (udeb)
+Changes: 
+ debootstrap (0.1.17.25xbox) unstable; urgency=low
+ .
+   * make for the xbox-linux debian port
+Files: 
+ 78dfb66d509553b3759ad18cc341bb35 319 admin extra debootstrap_0.1.17.25xbox.dsc
+ bd5650bd9d62dcf6d41d5fd66a5aa5a0 24772 admin extra debootstrap_0.1.17.25xbox.tar.gz
+ 0448022ebdbb1aea6109e89e6745f28f 199230 debian-installer extra debootstrap-udeb_0.1.17.25xbox_i386.udeb
+ e36bd4c2332fff04a0c79f04060db996 211380 admin extra debootstrap_0.1.17.25xbox_i386.deb
