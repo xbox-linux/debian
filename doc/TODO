@@ -1,0 +1,27 @@
+
+Cleanup the installer
+
+Seperate out the installer from the initrd
+for better edit and handling with the cvs.
+
+Build a single kernelpackage for both, the
+installer and Debian.
+
+Provide a graphical interface for the installer.
+
+Add more installmethods :
+	Install on F, from the hdd over the Network.
+
+Build Packages :
+	XFree86
+	xbv
+	Raincoat
+	gcc 3.2
+	...
+
+Setup an Debian Repository
+
+Looking for mirrors for the Repository
+
+And much more
+

@@ -1,0 +1,27 @@
+Welcome to the New XBox Debian Installer
+
+This should be the new Debian installer for XBox.
+
+For developing :
+
+Install the included package debootstrap_0.1.17.25xbox_i386.deb
+and the cramfs-1.1 tools.
+
+The following scripts are important :
+
+./unpack_initrds.sh	-> unpack the installer and
+			   boot initrd
+
+./make_iso.sh		-> build the installimage
+
+./make_bootdisks.sh	-> creating the bootcd's for running from
+			   hdd ( native ) or FATX
+
+./build_basedebs.sh	-> building the basedebs.tar file.
+			   Adjust the debian mirror you use in the script.
+
+If someone made changes to the uncrompessed initrd's use the script 
+
+./pack_initrds.sh	-> Creates updated initrd's
+
+To be continued ...
