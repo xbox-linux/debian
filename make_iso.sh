@@ -1,17 +1,44 @@
 #!/bin/sh
 
-./make_initrd.sh
-rm -f tmp/*
-rm -f xbeboot/initrd
-rm -f xbeboot/vmlinuz
-rm -f xbeboot/linuxboot.cfg
-rm -f tmp/basedebs.tar
-rm -f cd/default.xbe
-cp micro/initrd tmp/
-cp micro/vmlinuz tmp/
-cp micro/linuxboot.cfg tmp/
+source ./packages.inc
+
+copy_packages() {
+	for I in $PACKAGES
+	do
+		echo copy file $I
+		if [ -e packages/$I ];then
+			wget -c http://xbox-linux.sourceforge.net/packages/unstable/$I
+		fi
+		cp packages/$I tmp/packages/
+	done
+}
+
+WORK=$PWD
+
+rm -rf tmp
+mkdir tmp
+mkdir tmp/packages
+
+cd $WORK/initrd/tmpfs
+
+tar -czf ../tmpfs.tar.gz *
+
+cd $WORK
+
+rm -f initrd/usr/lib/xbox/packages.inc
+cp packages.inc initrd/usr/lib/xbox/
+
+mkcramfs initrd tmp/initrd
+
+cp vmlinuz-23 tmp/vmlinuz
+cp linuxboot.cfg.micro tmp/linuxboot.cfg
 cp xbeboot.xbe tmp/default.xbe
-cp basedebs.tar tmp/
-cp kernel-image-*.deb tmp/
-cp modutils*.deb tmp/
-mkisofs -r -J -udf -o cd.iso tmp/
+
+if [ -e packages/basedebs.tar ]; then
+	wget -c http://xbox-linux.sourceforge.net/packages/unstable/basedebs.tar
+fi
+cp packages/basedebs.tar tmp/
+
+copy_packages
+
+mkisofs -r -J -udf -o installer.iso tmp/

@@ -8,4 +8,4 @@ tar -czf ../tmpfs.tar.gz *
 
 cd $WORK
 
-mkcramfs initrd micro/initrd
+mkcramfs initrd tmp/initrd

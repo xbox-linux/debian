@@ -2,17 +2,19 @@
 
 WORK=$PWD
 
-rm -f tmp/*
-cd initrd_boot
-mkcramfs initrd ../tmp/initrd
-cd $WORK
-cp linuxboot.cfg.hdd tmp/linuxboot.cfg
-cp xbeboot.xbe tmp/default.xbe
-cp vmlinuz tmp/
+rm -rf tmp
+mkdir tmp
 
-mkisofs -r -J -udf -o boot_fatx.iso tmp/
+mkcramfs initrd_boot/initrd tmp/initrd
+
+cp linuxboot.cfg.hdd_xbe tmp/linuxboot.cfg
+cp xbeboot.xbe tmp/default.xbe
+cp vmlinuz-24 tmp/vmlinuz
+
+mkisofs -r -J -udf -o boot_hdd.iso tmp/
 
 rm -f tmp/linuxboot.cfg
 
 cp linuxboot.cfg.fatx tmp/linuxboot.cfg
-mkisofs -r -J -udf -o boot_hdd.iso tmp/
+
+mkisofs -r -J -udf -o boot_fatx.iso tmp/

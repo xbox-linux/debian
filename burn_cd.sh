@@ -19,5 +19,5 @@
 #       (c) Copyright 2002      Edgar Hucek <hostmaster@ed-soft.at>
 
 
-cdrecord dev=0,1,0 blank=fast -speed=12
-cdrecord dev=0,1,0 -dao -speed=12 driveropts=burnproof cd.iso
+cdrecord dev=0,0,0 blank=fast -speed=12
+cdrecord dev=0,0,0 -dao -speed=12 driveropts=burnproof installer.iso
